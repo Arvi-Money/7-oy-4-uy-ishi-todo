@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
   const todos = useSelector(state => state.task.todos)
-  console.log(todos);
   const taskRef = useRef();
   const dispatch = useDispatch();
 
@@ -40,7 +39,7 @@ function App() {
             return (
               <div key={index} className="task">
                 <p>{el.task}</p>
-                <button className="btn" onClick={handleDelete(el.id)}>Delete</button>
+                <button className="btn" onClick={() => {handleDelete(el.id)}}>Delete</button>
               </div>
             )
           })

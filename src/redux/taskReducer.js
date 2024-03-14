@@ -1,16 +1,16 @@
 const defaultState = {
-  todos: [],
+  todos: []
 };
 
-function taskReducer(state = defaultState, action) {
-  if (action.type === "ADD") {
+export function taskReducer(state = defaultState, actions) {
+  if (actions.type === "ADD") {
     let copied = JSON.parse(JSON.stringify(state.todos));
-    copied.push(action.payload);
+    copied.push(actions.payload);
     return { ...state, todos: copied };
-  } else if (action.type === "REMOVE") {
+  } else if (actions.type === "REMOVE") {
     let copied = JSON.parse(JSON.stringify(state.todos));
     copied = copied.filter((el) => {
-      return el.id !== action.payload;
+      return el.id !== actions.payload;
     });
     return { ...state, todos: copied };
   } else {
